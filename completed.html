@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uppgift 2 - Fakestore</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- bootswatch theme-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/yeti/bootstrap.min.css"
+    />
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var productArray = [];
+      $(document).ready(function () {
+        productArray = JSON.parse(localStorage.getItem("products"))
+        productArray.forEach(product => {
+            console.log(product.amount +"x: " +product.title);
+        });
+        localStorage.removeItem("products");
+        updateCartNavText();
+      });
+
+      function updateCartNavText() {
+        if (localStorage.getItem("products") == null) {
+          $("#cartNavText").html(`0`);
+        } else {
+          var itemsInCart = JSON.parse(localStorage.getItem("products")).length;
+          $("#cartNavText").html(`${itemsInCart}`);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!--Header-->
+    <header><h1>Uppgift 2 - Varukorg</h1></header>
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Meny</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html"
+            >Varor
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!--Main place-->
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Tack för din order!</h1>
+            <h2>Din order skickas inom kort.</h2>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--Footer-->
+    <footer></footer>
+  </body>
+</html>

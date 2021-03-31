@@ -1,0 +1,138 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uppgift 2 - Fakestore</title>
+    <!-- bootswatch theme-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/yeti/bootstrap.min.css"
+    />
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Egna script -->
+    <script src="./js/update-cart-nav-text.js"></script>
+    <script src="./js/card-order.js"></script>
+  </head>
+  <body>
+    <!--Header-->
+    <header><h1>Uppgift 2 - Varukorg</h1></header>
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Meny</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Varor </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./cart-order.html"
+            >Varukorg(<span id="cartNavText"></span>)</a
+          >
+          <span class="sr-only">(current)</span>
+        </li>
+      </ul>
+    </nav>
+    <!--Main place-->
+    <main>
+      <div class="container" style="padding-top: 20px">
+        <div id="products" class="row">
+          <div class="col-12">
+            <legend>Varukorg</legend>
+          </div>
+          <div class="col-12">
+            <ul id="cart" class="list-group"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="padding-top: 20px">
+        <div class="row">
+          <div class="container">
+            <div class="form-group">
+              <label for="email"><b>E-post</b></label>
+              <input type="email" maxlength="100"
+                class="form-control"
+                placeholder="E-post"
+                id="email" name="email" required/>
+              <div id="emailError" class="invalid-feedback">
+                Ej korrekt ifylld e-mail-adress (ex: name@domain.com)
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone"><b>Mobiltelefon:</b></label>
+              <input type="text" maxlength="20"
+                onkeyup="this.value=this.value.replace(/[^\d]/,'')"
+                pattern="[0-9]*" inputmode="numeric"
+                class="form-control"
+                placeholder="Telefonnummer"
+                id="phone" name="phone" required/>
+              <div id="phoneError" class="invalid-feedback">
+                Telefonnummer måste börja med 0 och vara minst 7 siffror
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name"><b>Namn</b></label>
+              <input type="text"  maxlength="100"
+                class="form-control"
+                placeholder="Namn"
+                id="name" name="name" required/>
+              <div id="nameError" class="invalid-feedback">
+                Namn får ej innehålla siffror eller specialtecken
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="adress"><b>Adress</b></label>
+              <input type="text"  maxlength="50"
+                class="form-control"
+                placeholder="Adress"
+                id="adress" name="adress" required/>
+              <div id="adressError" class="invalid-feedback">
+                Adress får ej innehålla specialtecken
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="areacode"><b>Postkod</b></label>
+              <input type="text" maxlength="5"
+                onkeyup="this.value=this.value.replace(/[^\d]/,'')"
+                pattern="[0-9]*" inputmode="numeric"
+                class="form-control"
+                placeholder="Postkod"
+                id="areacode" name="areacode" required/>
+              <div id="areacodeError" class="invalid-feedback">
+                Postnummer får ej börja med 0 och ska vara 5 siffror långt
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="city"><b>Stad</b></label>
+              <input type="text" maxlength="20"
+                class="form-control"
+                placeholder="Stad"
+                id="city" name="city" required/>
+              <div id="cityError" class="invalid-feedback">
+                Stad får ej innehålla siffror eller specialtecken.
+              </div>
+            </div>
+
+            <button type="button"
+              class="btn btn-block btn-primary"
+              style="margin-top: 20px"
+              id="orderbutton">
+              Beställ
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--Footer-->
+    <footer></footer>
+  </body>
+</html>
