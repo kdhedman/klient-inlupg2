@@ -14,7 +14,7 @@ function listItems(product, index) {
   <div class="card border-primary mb-3" style="max-width: 15rem;">
     <div class="card-header"><h4>${product.title}</h4></div>
     <div class="card-body">
-      <img class="img-thumbnail img-fluid" src="${product.image}" alt="" />
+      <img class="img-thumbnail img-fluid" src="${product.image}" alt="${product.title}" />
       <p class="card-text">${product.description}</p>
       <h6 class="card-subtitle mb-2 text-muted">$ ${product.price}</h6>
       <button type="button" id="button${product.id}" class="btn btn-primary btn-md btn-block">

@@ -33,7 +33,7 @@ function updateCart() {
       $("#cart").append(`
       <li class="list-group-item justify-content-between" id="${product.id}">
         <span id="amount${product.id}"class="h4">${product.amount}x</span>
-        <img class="img-thumbnail" style="height: 100px" src="${product.image}">
+        <img class="img-thumbnail" style="height: 100px" src="${product.image}" alt="${product.title}">
         ${product.title}
         <span class="float-right">$${parseFloat(product.price).toFixed(2)}
           <button id="remove${
